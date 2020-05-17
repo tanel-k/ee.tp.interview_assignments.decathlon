@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="2020-05-17-schema-init" author="tanel@prikk.dev">
+        <createTable tableName="event_type">
+            <column name="name" type="varchar(100)">
+                <constraints primaryKey="true" primaryKeyName="pk_event_type" />
+            </column>
+            <column name="display_name" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="performance_unit" type="varchar(15)">
+                <constraints nullable="false" />
+            </column>
+            <column name="scoring_parameter_a" type="decimal">
+                <constraints nullable="false" />
+            </column>
+            <column name="scoring_parameter_b" type="decimal">
+                <constraints nullable="false" />
+            </column>
+            <column name="scoring_parameter_c" type="decimal">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <insert tableName="event_type">
+            <column name="name">SHORT_DASH</column>
+            <column name="display_name">100-metre dash</column>
+            <column name="performance_unit">TIME</column>
+            <column name="scoring_parameter_a">25.4347</column>
+            <column name="scoring_parameter_b">18</column>
+            <column name="scoring_parameter_c">1.81</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">LONG_DASH</column>
+            <column name="display_name">400-metre dash</column>
+            <column name="performance_unit">TIME</column>
+            <column name="scoring_parameter_a">1.53775</column>
+            <column name="scoring_parameter_b">82</column>
+            <column name="scoring_parameter_c">1.81</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">RUN</column>
+            <column name="display_name">1,500-metre run</column>
+            <column name="performance_unit">TIME</column>
+            <column name="scoring_parameter_a">0.03768</column>
+            <column name="scoring_parameter_b">480</column>
+            <column name="scoring_parameter_c">1.85</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">SHOT_PUT</column>
+            <column name="display_name">shot put</column>
+            <column name="performance_unit">DISTANCE</column>
+            <column name="scoring_parameter_a">51.39</column>
+            <column name="scoring_parameter_b">1.5</column>
+            <column name="scoring_parameter_c">1.05</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">LONG_JUMP</column>
+            <column name="display_name">long jump</column>
+            <column name="performance_unit">DISTANCE</column>
+            <column name="scoring_parameter_a">0.14354</column>
+            <column name="scoring_parameter_b">220</column>
+            <column name="scoring_parameter_c">1.4</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">HIGH_JUMP</column>
+            <column name="display_name">high jump</column>
+            <column name="performance_unit">DISTANCE</column>
+            <column name="scoring_parameter_a">0.8465</column>
+            <column name="scoring_parameter_b">75</column>
+            <column name="scoring_parameter_c">1.42</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">HURDLES</column>
+            <column name="display_name">110-metre hurdles</column>
+            <column name="performance_unit">TIME</column>
+            <column name="scoring_parameter_a">5.74352</column>
+            <column name="scoring_parameter_b">28.5</column>
+            <column name="scoring_parameter_c">1.92</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">DISCUS_THROW</column>
+            <column name="display_name">discus throw</column>
+            <column name="performance_unit">DISTANCE</column>
+            <column name="scoring_parameter_a">12.91</column>
+            <column name="scoring_parameter_b">4</column>
+            <column name="scoring_parameter_c">1.1</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">POLE_VAULT</column>
+            <column name="display_name">pole vault</column>
+            <column name="performance_unit">DISTANCE</column>
+            <column name="scoring_parameter_a">0.2797</column>
+            <column name="scoring_parameter_b">100</column>
+            <column name="scoring_parameter_c">1.35</column>
+        </insert>
+
+        <insert tableName="event_type">
+            <column name="name">JAVELIN_THROW</column>
+            <column name="display_name">javelin throw</column>
+            <column name="performance_unit">DISTANCE</column>
+            <column name="scoring_parameter_a">10.14</column>
+            <column name="scoring_parameter_b">7</column>
+            <column name="scoring_parameter_c">1.08</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

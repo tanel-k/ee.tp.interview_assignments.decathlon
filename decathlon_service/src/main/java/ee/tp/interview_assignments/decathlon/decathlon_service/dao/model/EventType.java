@@ -2,28 +2,20 @@ package ee.tp.interview_assignments.decathlon.decathlon_service.dao.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "event_type")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class EventType {
     @SuppressWarnings("unused")
-    public enum Environment {
-        TRACK,
-        FIELD
-    }
-
-    @SuppressWarnings("unused")
-    public enum PerformanceUnit {
+    public enum PerformanceDimension {
         TIME,
-        SHORT_DISTANCE,
-        LONG_DISTANCE
+        DISTANCE
     }
 
     @Id
@@ -31,13 +23,16 @@ public class EventType {
     @Column(nullable = false)
     private String displayName;
     @Column(nullable = false)
-    private Environment environment;
+    @Enumerated(EnumType.STRING)
+    private PerformanceDimension performanceDimension;
     @Column(nullable = false)
-    private PerformanceUnit performanceUnit;
-    @Column(nullable = false)
+    private int scoringPrecision;
+    @Column(name = "scoring_parameter_a", nullable = false)
     private BigDecimal scoringParameterA;
-    @Column(nullable = false)
+    @Column(name = "scoring_parameter_b", nullable = false)
     private BigDecimal scoringParameterB;
-    @Column(nullable = false)
+    @Column(name = "scoring_parameter_c", nullable = false)
     private BigDecimal scoringParameterC;
+    @Column(name = "scoring_unit_conversion_factor", nullable = false)
+    private BigDecimal scoringUnitConversionFactor;
 }

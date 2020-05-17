@@ -10,8 +10,5 @@
         <module name="decathlon_service.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="decathlon_service.test" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

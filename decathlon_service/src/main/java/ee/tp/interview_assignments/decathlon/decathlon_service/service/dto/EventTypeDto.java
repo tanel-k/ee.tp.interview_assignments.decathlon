@@ -10,5 +10,5 @@ import lombok.*;
 public class EventTypeDto {
     private String name;
     private String displayName;
-    private EventType.PerformanceUnit performanceUnit;
+    private EventType.PerformanceDimension performanceDimension;
 }

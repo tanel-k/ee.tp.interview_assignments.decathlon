@@ -1,1 +1,12 @@
-# Blank for now.
+version: "3.7"
+
+services:
+  decathlon-database:
+    image: postgres:10-alpine
+    container_name: decathlon-database
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: decathlon
+      POSTGRES_USER: decathlon
+      POSTGRES_PASSWORD: decathlon

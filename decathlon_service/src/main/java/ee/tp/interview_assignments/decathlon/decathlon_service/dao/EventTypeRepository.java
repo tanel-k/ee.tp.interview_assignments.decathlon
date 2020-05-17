@@ -6,6 +6,6 @@ import org.springframework.data.repository.Repository;
 import java.util.List;
 
 public interface EventTypeRepository extends Repository<EventType, String> {
-    List<EventType> findAll();
     EventType findByName(String name);
+    List<EventType> findAll();
 }
