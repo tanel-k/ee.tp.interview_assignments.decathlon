@@ -1,7 +1,7 @@
 package ee.tp.interview_assignments.decathlon.decathlon_service.service;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
-import ee.tp.interview_assignments.decathlon.decathlon_service.dao.model.EventType;
+import ee.tp.interview_assignments.decathlon.decathlon_service.repository.model.EventType;
 import ee.tp.interview_assignments.decathlon.decathlon_service.service.exception.InvalidInputException;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.math.RoundingMode;
 
 @Service
 public class EventTypeScoreService {
-    public int calculate(EventType type, BigDecimal performance) {
+    public int getScore(EventType type, BigDecimal performance) {
         if (performance.compareTo(BigDecimal.ZERO) < 0) {
             throw new InvalidInputException("`performance` must be non-negative.");
         }

@@ -65,5 +65,8 @@
         </update>
 
         <addNotNullConstraint tableName="event_type" columnName="scoring_precision" />
+
+        <!-- At this point we should consider extracting scoring-related data from `event_type`. -->
+        <!-- We could implement a data model that supports storing multiple scoring strategies. -->
     </changeSet>
 </databaseChangeLog>

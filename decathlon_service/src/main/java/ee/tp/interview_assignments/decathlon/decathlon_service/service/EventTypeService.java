@@ -1,7 +1,7 @@
 package ee.tp.interview_assignments.decathlon.decathlon_service.service;
 
-import ee.tp.interview_assignments.decathlon.decathlon_service.dao.EventTypeRepository;
-import ee.tp.interview_assignments.decathlon.decathlon_service.dao.model.EventType;
+import ee.tp.interview_assignments.decathlon.decathlon_service.repository.EventTypeRepository;
+import ee.tp.interview_assignments.decathlon.decathlon_service.repository.model.EventType;
 import ee.tp.interview_assignments.decathlon.decathlon_service.service.dto.EventScoreDto;
 import ee.tp.interview_assignments.decathlon.decathlon_service.service.dto.EventTypeDto;
 import ee.tp.interview_assignments.decathlon.decathlon_service.service.exception.InvalidInputException;
@@ -31,7 +31,7 @@ public class EventTypeService {
             .collect(Collectors.toList());
     }
 
-    public EventScoreDto calculateScore(String eventTypeName, BigDecimal performance) {
+    public EventScoreDto getScore(String eventTypeName, BigDecimal performance) {
         if (eventTypeName == null) {
             throw new InvalidInputException("`eventTypeName` must not be null.");
         }
@@ -46,7 +46,7 @@ public class EventTypeService {
         }
 
         return EventScoreDto.of(
-            scoreService.calculate(eventType, performance)
+            scoreService.getScore(eventType, performance)
         );
     }
 }

@@ -1,6 +1,6 @@
 package ee.tp.interview_assignments.decathlon.decathlon_service.service.dto;
 
-import ee.tp.interview_assignments.decathlon.decathlon_service.dao.model.EventType;
+import ee.tp.interview_assignments.decathlon.decathlon_service.repository.model.EventType;
 import lombok.*;
 
 @Getter

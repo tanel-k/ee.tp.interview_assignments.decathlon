@@ -1,4 +1,4 @@
-package ee.tp.interview_assignments.decathlon.decathlon_service.dao.model;
+package ee.tp.interview_assignments.decathlon.decathlon_service.repository.model;
 
 import lombok.*;
 
