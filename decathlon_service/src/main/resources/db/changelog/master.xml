@@ -7,4 +7,5 @@
     <include file="2020-05-17-scoring-parameter-unit-adjustment.xml" relativeToChangelogFile="true" />
     <include file="2020-05-17-scoring-parameter-unit-adjustment-improvement.xml" relativeToChangelogFile="true" />
     <include file="2020-05-17-scoring-precision.xml" relativeToChangelogFile="true" />
+    <include file="2020-05-19-precision-adjustments.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>
