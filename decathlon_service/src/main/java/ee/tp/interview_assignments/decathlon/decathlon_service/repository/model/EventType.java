@@ -33,6 +33,6 @@ public class EventType {
     private BigDecimal scoringParameterB;
     @Column(name = "scoring_parameter_c", nullable = false)
     private BigDecimal scoringParameterC;
-    @Column(name = "scoring_unit_conversion_factor", nullable = false)
+    @Column(nullable = false)
     private BigDecimal scoringUnitConversionFactor;
 }

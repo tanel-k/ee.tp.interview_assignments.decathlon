@@ -10,7 +10,7 @@
 4. Access the UI via [http://localhost:3001](http://localhost:3001).
 
 ## Notes
-Please use official IAAF scoring tables to evaluate accuracy.
+Please use [the official IAAF scoring tables](http://www.iaaf.org/download/download?filename=53f7d332-be0c-434c-8467-1d9078966147.pdf&urlslug=IAAF%20Scoring%20Tables%20for%20Combined%20Events) to evaluate accuracy.
 
 Wikipedia's benchmark values do not always match the values present in the scoring tables:
 
