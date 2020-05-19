@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("decathlon/v1/event_types")
+@RequestMapping("decathlon/v1/event-types")
 @AllArgsConstructor
 public class EventTypeController {
     private EventTypeService service;

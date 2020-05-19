@@ -1,12 +1,34 @@
 version: "3.7"
 
 services:
-  decathlon-database:
+  decathlon_database:
     image: postgres:10-alpine
-    container_name: decathlon-database
+    container_name: decathlon_database
     ports:
       - 5432:5432
     environment:
       POSTGRES_DB: decathlon
       POSTGRES_USER: decathlon
       POSTGRES_PASSWORD: decathlon
+
+  decathlon_service:
+    build: ./decathlon_service
+    ports:
+      - 8081:8081
+    environment:
+      DB_URL: jdbc:postgresql://decathlon_database:5432/decathlon
+      DB_USER: decathlon
+      DB_PASSWORD: decathlon
+    depends_on:
+        - decathlon_database
+
+  decathlon_ui:
+    build: ./decathlon_ui
+    container_name: decathlon_ui
+    ports:
+      - 3001:3001
+    environment:
+      API_ROOT_URL: http://decathlon_service:8081
+      NODE_ENV: production
+    depends_on:
+      - decathlon_service
