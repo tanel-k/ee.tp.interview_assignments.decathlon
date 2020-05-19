@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="2020-05-17-scoring-precision" author="tanel@prikk.dev">
+        <addColumn tableName="event_type">
+            <column name="scoring_precision" type="smallint" />
+        </addColumn>
+
+        <!-- We would produce more accurate results if we created a table for IAAF scoring guidelines. -->
+        <!-- http://www.iaaf.org/download/download?filename=53f7d332-be0c-434c-8467-1d9078966147.pdf&urlslug=IAAF%20Scoring%20Tables%20for%20Combined%20Events -->
+        <!-- For a small project such as this, however, we won't waste time on that. -->
+        <!-- We'll just try to replicate IAAF's score calculation methodology -->
+        <!-- `scoring_precision` values below were empirically estimated based on the IAAF scoring table. -->
+
+        <update tableName="event_type">
+            <column name="scoring_precision">5</column>
+            <where>name = 'SHORT_DASH'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">4</column>
+            <where>name = 'LONG_DASH'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">5</column>
+            <where>name = 'RUN'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">5</column>
+            <where>name = 'SHOT_PUT'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">4</column>
+            <where>name = 'DISCUS_THROW'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">5</column>
+            <where>name = 'POLE_VAULT'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">5</column>
+            <where>name = 'HURDLES'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">5</column>
+            <where>name = 'JAVELIN_THROW'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">4</column>
+            <where>name = 'HIGH_JUMP'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_precision">5</column>
+            <where>name = 'LONG_JUMP'</where>
+        </update>
+
+        <addNotNullConstraint tableName="event_type" columnName="scoring_precision" />
+
+        <!-- At this point we should consider extracting scoring-related data from `event_type`. -->
+        <!-- We could implement a data model that supports storing multiple scoring strategies. -->
+    </changeSet>
+</databaseChangeLog>

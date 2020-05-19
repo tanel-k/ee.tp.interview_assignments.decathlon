@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="2020-05-17-scoring-parameter-unit-adjustment" author="tanel@prikk.dev">
+        <!-- 'TIME' and 'DISTANCE' aren't units. -->
+        <!-- They are physical attributes that can be measured in units. -->
+        <!-- 'performance_dimension' seems more descriptive for now (albeit maybe a little too "science"-y). -->
+        <renameColumn tableName="event_type" oldColumnName="performance_unit" newColumnName="performance_dimension" />
+
+        <!-- Ensure all scoring parameters relate to SI units (metres instead of centimetres etc). -->
+        <!-- To normalize parameter B below, parameter A was recalculated as A * 100 ^ C. -->
+        <update tableName="event_type">
+            <column name="scoring_parameter_a">90.5676</column>
+            <column name="scoring_parameter_b">2.2</column>
+            <where>name = 'LONG_JUMP'</where>
+        </update>
+
+        <update tableName="event_type">
+            <column name="scoring_parameter_a">585.635</column>
+            <column name="scoring_parameter_b">.75</column>
+            <where>name = 'HIGH_JUMP'</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>
