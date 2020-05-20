@@ -21,10 +21,6 @@ public class EventTypeService {
     private EventTypeRepository repository;
     private EventTypeScoreService scoreService;
 
-    public EventType findByName(String name) {
-        return repository.findByName(name);
-    }
-
     public List<EventTypeDto> findAll() {
         return repository.findAll().stream()
             .map(eventType -> modelMapper.map(eventType, EventTypeDto.class))
@@ -40,7 +36,7 @@ public class EventTypeService {
             throw new InvalidInputException("`performance` must not be null.");
         }
 
-        EventType eventType = findByName(eventTypeName);
+        EventType eventType = repository.findByName(eventTypeName);
         if (eventType == null) {
             throw new NotFoundException("Event type not found.");
         }
